@@ -1,0 +1,47 @@
+Crystal Blocks / حديقة الكريستال
+
+HTML browser verification: PASS
+- Opened the standalone HTML locally without a server or internet.
+- Loaded the embedded GLB and all six block models.
+- Checked nonblank WebGL pixels and color diversity on five viewports:
+  320x568, 390x844, 430x932, 844x390, 1440x900.
+- Checked that application controls stayed within the viewport.
+- Verified tap placement and pointer drag placement.
+- Verified mobile touch drag, finger offset and animated canvas pixels.
+- Verified invalid drops, line clear, scoring, separate crystal balance,
+  undo, rotation, bomb, store purchase, settings and save/resume.
+- Completed level 1 through UI interaction, verified level 2 unlock,
+  next-level transition and locked levels.
+- No JavaScript errors in the final browser workflow checks.
+
+Game rules verification: PASS
+- Simultaneous row/column clears count intersections once.
+- Invalid placements do not consume moves.
+- Undo restores the previous board and pieces.
+- Four rotations restore a shape.
+- Bombs outside occupied areas do not change the board.
+- Win/loss handling, seeded generation and all 24 level definitions.
+
+Unity verification: PASS (source and runtime startup)
+- Unity Editor 6000.6.4f1 compiled the C# project.
+- The scene was generated and saved by the installed Unity Editor.
+- Batch play mode loaded the garden, board, 72 initial board meshes,
+  game data and block sprite resources.
+- Final startup marker: CRYSTAL_RUNTIME_VERIFIED.
+- Unity visual appearance and native mobile gestures have not been
+  tested on a physical device. The editor reported a search-index
+  exception unrelated to the game during its background initialization.
+
+Build limitation
+- index.html is the independent Three.js browser implementation.
+- No compiled Unity WebGL or Android/iOS application is included.
+- Unity WebGL Build Support is not currently installed in the editor.
+- Browser verification used installed Chrome; Safari/Firefox and
+  physical phones have not been tested directly.
+
+Assets
+- Background: built-in imagegen; prompt in assets/art-prompt.txt.
+- Rounded crystal mesh: authored for the game; GLB in assets,
+  equivalent OBJ and materials in Unity Resources.
+- Icons: Lucide. Browser 3D renderer and GLB loader: Three.js.
+- The original reference HTML was not modified.
